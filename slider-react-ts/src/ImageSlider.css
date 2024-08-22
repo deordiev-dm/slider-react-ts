@@ -1,0 +1,119 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.slider {
+  position: relative;
+
+  background-color: #eee;
+  max-width: 1000px;
+  aspect-ratio: 10 / 6;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  overflow: hidden;
+}
+
+.slider-image {
+  flex-grow: 0;
+  flex-shrink: 0;
+  
+  display: block; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  transition: transform 500ms ease;
+}
+
+.slider-btn {
+  background-color: transparent;
+  border: none;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  padding: 0 20px;
+
+  cursor: pointer;
+
+  transition: background-color 300ms ease-in-out;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.slider-btn svg  {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.slider-btn--prev {
+  left: 0;
+}
+
+.slider-btn--next {
+  right: 0;
+}
+
+.slider-pagination {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  
+  padding: 10px 30px;
+
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%);
+}
+
+.slider-pagination button {
+  background-color: transparent;
+  border: none;
+  
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background-color: #fff;
+  cursor: pointer;
+
+  transition: scale 300ms ease;
+}
+
+.slider-pagination button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 150%;
+  height: 150%;
+
+  border-radius: 50%;
+  border: 1px solid #fff;
+
+  transform: scale(0) translate(-50%, -50%);
+  transform-origin: top left;
+  transition: transform 300ms  ease-in-out;
+}
+
+.slider-pagination button.active:before {
+  transform: scale(1) translate(-50%, -50%);
+}
